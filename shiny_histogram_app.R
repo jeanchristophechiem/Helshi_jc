@@ -49,7 +49,7 @@ server <- function(input, output) {
     
     # Create histogram with density overlay
     hist(y, freq = FALSE, breaks = input$bins,
-         main = paste("Normal Distribution (μ =", input$mu, ", σ =", input$sd, ")"),
+         main = paste("Interactive Histogram with Density\nNormal Distribution (μ =", input$mu, ", σ =", input$sd, ")"),
          xlab = "Values", ylab = "Density",
          col = "lightblue", border = "white")
     
