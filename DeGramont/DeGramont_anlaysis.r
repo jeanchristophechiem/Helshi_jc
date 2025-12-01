@@ -119,44 +119,7 @@ if (any(!is.na(medians))) {
   text(0, 0.5, "50% survival", pos = 3, col = "gray")
 }
 
-# Save the plot as PNG file
-png("survival_curves_by_treatment.png", width = 800, height = 600, res = 300)
-
-# Reset par settings for the PNG device
-par(mar = c(5, 4, 4, 2))
-
-# Simple survival plot
-plot(km_fit, 
-     main = "Kaplan-Meier Survival Curves by Treatment",
-     xlab = "Time",
-     ylab = "Survival Probability",
-     col = c("blue", "red"),
-     lwd = 2,
-     conf.int = FALSE)
-
-grid()
-
-legend("topright", 
-       legend = treatment_labels,
-       col = c("blue", "red"),
-       lwd = 2,
-       bty = "n")
-
-# Add p-value text
-text(x = 0, y = 0.1, labels = p_text, 
-     pos = 4, cex = 1.2, font = 2, 
-     col = ifelse(p_value < 0.05, "red", "black"))
-
-# Add median survival lines if available
-if (any(!is.na(medians))) {
-  abline(h = 0.5, col = "gray", lty = 2)
-  text(0, 0.5, "50% survival", pos = 3, col = "gray")
-}
-
-dev.off()
-cat("\nPlot saved as 'survival_curves_by_treatment.png' in current folder\n")
-
-# Print numbers at risk in console instead
+# Print numbers at risk in console
 cat("\nNumbers at Risk:\n")
 cat("Time points: 0, 25%, 50%, 75%, 100% of follow-up\n")
 time_points <- c(0, quantile(km_fit$time, c(0.25, 0.5, 0.75)), max(km_fit$time))
