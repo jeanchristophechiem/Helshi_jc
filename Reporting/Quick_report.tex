@@ -1,0 +1,1057 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Quick Clinical Study Report},
+  pdfauthor={Clinical Research Team},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Quick Clinical Study Report}
+\author{Clinical Research Team}
+\date{2025-12-01}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{Introduction}\label{introduction}
+
+\subsection{Background and Rationale}\label{background-and-rationale}
+
+This clinical study represents a critical investigation into {[}STUDY
+INDICATION{]}. The therapeutic area under investigation addresses a
+significant unmet medical need, with current treatment options showing
+limited efficacy and substantial side effect profiles.
+
+\subsection{Study Objectives}\label{study-objectives}
+
+\subsubsection{Primary Objective}\label{primary-objective}
+
+\begin{itemize}
+\tightlist
+\item
+  To evaluate the efficacy and safety of {[}INVESTIGATIONAL TREATMENT{]}
+  compared to {[}CONTROL/STANDARD OF CARE{]} in patients with
+  {[}INDICATION{]}
+\end{itemize}
+
+\subsubsection{Secondary Objectives}\label{secondary-objectives}
+
+\begin{itemize}
+\tightlist
+\item
+  Assess long-term safety and tolerability
+\item
+  Evaluate patient-reported outcomes and quality of life measures
+\item
+  Analyze biomarker correlations with clinical response
+\item
+  Determine optimal dosing regimens
+\end{itemize}
+
+\subsection{Study Population}\label{study-population}
+
+\textbf{Target Population:} Adult patients (≥18 years) with confirmed
+diagnosis of {[}INDICATION{]}
+
+\textbf{Key Inclusion Criteria:} - Confirmed disease diagnosis within
+the past {[}TIME PERIOD{]} - Adequate organ function - ECOG Performance
+Status 0-2 - Written informed consent
+
+\textbf{Key Exclusion Criteria:} - Previous exposure to investigational
+agent - Significant comorbidities - Pregnancy or nursing - Concurrent
+investigational therapies
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Conceptual Design}\label{conceptual-design}
+
+\subsection{Study Design Overview}\label{study-design-overview}
+
+This is a \textbf{Phase {[}II/III{]} randomized, double-blind,
+placebo-controlled, multicenter study} designed to evaluate the efficacy
+and safety of {[}INVESTIGATIONAL TREATMENT{]}.
+
+\subsection{Study Schema}\label{study-schema}
+
+\begin{center}\includegraphics{Quick_report_files/figure-latex/design-schema-1} \end{center}
+
+\subsection{Randomization and
+Blinding}\label{randomization-and-blinding}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Randomization:} 1:1 allocation using permuted block
+  randomization
+\item
+  \textbf{Stratification Factors:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Disease stage (Early vs.~Advanced)
+  \item
+    Geographic region (US/EU vs.~ROW)
+  \item
+    Prior therapy (Yes vs.~No)
+  \end{itemize}
+\item
+  \textbf{Blinding:} Double-blind design maintained throughout treatment
+  period
+\end{itemize}
+
+\subsection{Treatment Arms}\label{treatment-arms}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+\textbf{Arm} & \textbf{Treatment} & \textbf{Dose} & \textbf{Schedule} &
+\textbf{Duration} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A (Active) & {[}Drug Name{]} & {[}XXX mg{]} & {[}Daily/Weekly{]} & {[}XX
+weeks{]} \\
+B (Control) & Placebo/SOC & {[}XXX mg{]} & {[}Daily/Weekly{]} & {[}XX
+weeks{]} \\
+\end{longtable}
+}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Data Collection and
+Management}\label{data-collection-and-management}
+
+\subsection{Data Collection Strategy}\label{data-collection-strategy}
+
+\subsubsection{Electronic Data Capture
+(EDC)}\label{electronic-data-capture-edc}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Platform:} {[}EDC System Name{]} (e.g., Medidata Rave, Oracle
+  Clinical One)
+\item
+  \textbf{Real-time data entry} with built-in edit checks
+\item
+  \textbf{Electronic signatures} for data validation
+\item
+  \textbf{Audit trail} maintenance for regulatory compliance
+\end{itemize}
+
+\subsubsection{Key Data Elements}\label{key-data-elements}
+
+\paragraph{Efficacy Assessments}\label{efficacy-assessments}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Primary Endpoint:} {[}Specify - e.g., Overall Response Rate,
+  Progression-Free Survival{]}
+\item
+  \textbf{Secondary Endpoints:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Overall Survival (OS)
+  \item
+    Duration of Response (DOR)
+  \item
+    Patient-Reported Outcomes (PRO)
+  \item
+    Biomarker analyses
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Safety Assessments}\label{safety-assessments}
+
+\begin{itemize}
+\tightlist
+\item
+  Adverse Events (AEs) graded per CTCAE v5.0
+\item
+  Serious Adverse Events (SAEs)
+\item
+  Laboratory parameters
+\item
+  Vital signs and ECGs
+\item
+  Concomitant medications
+\end{itemize}
+
+\subsubsection{Assessment Schedule}\label{assessment-schedule}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.2917}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1389}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0972}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0972}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1389}}@{}}
+\caption{Assessment Schedule Overview}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Assessment
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Screening
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Baseline
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Week.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Week.8
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Week.12
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Follow.up
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Assessment
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Screening
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Baseline
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Week.4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Week.8
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Week.12
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Follow.up
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Informed Consent & X & & & & & \\
+Demographics & X & & & & & \\
+Medical History & X & & & & & \\
+Physical Exam & X & X & X & X & X & \\
+Laboratory Tests & X & X & X & X & X & X \\
+Efficacy Evaluation & & X & X & X & X & X \\
+Safety Assessment & & X & X & X & X & X \\
+PRO Questionnaires & X & X & X & X & X & X \\
+Biomarker Collection & X & X & & & X & \\
+\end{longtable}
+
+\subsection{Data Management
+Procedures}\label{data-management-procedures}
+
+\subsubsection{Quality Assurance}\label{quality-assurance}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Data Review:} Continuous monitoring with monthly data review
+  meetings
+\item
+  \textbf{Query Management:} Automated and manual query generation with
+  48-hour response target
+\item
+  \textbf{Database Lock:} Planned database lock procedures with sign-off
+  requirements
+\end{itemize}
+
+\subsubsection{Data Standards}\label{data-standards}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{CDISC Compliance:} Study data structured according to CDISC
+  SDTM standards
+\item
+  \textbf{Controlled Terminology:} Use of CDISC controlled terminology
+  and MedDRA coding
+\item
+  \textbf{Data Transfer:} Secure data transfer protocols with encryption
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Statistical Analysis Plan}\label{statistical-analysis-plan}
+
+\subsection{Analysis Populations}\label{analysis-populations}
+
+\subsubsection{Full Analysis Set (FAS)}\label{full-analysis-set-fas}
+
+All randomized participants who received at least one dose of study
+treatment, analyzed according to randomized treatment assignment
+(Intent-to-Treat principle).
+
+\subsubsection{Per Protocol Set (PPS)}\label{per-protocol-set-pps}
+
+Subset of FAS excluding participants with major protocol deviations that
+could affect efficacy evaluation.
+
+\subsubsection{Safety Analysis Set (SAS)}\label{safety-analysis-set-sas}
+
+All participants who received at least one dose of study treatment,
+analyzed according to actual treatment received.
+
+\subsection{Primary Analysis}\label{primary-analysis}
+
+\subsubsection{Primary Endpoint
+Analysis}\label{primary-endpoint-analysis}
+
+\textbf{Endpoint:} {[}Specify primary endpoint{]}
+
+\textbf{Statistical Method:} - For binary endpoints: Chi-square test or
+Fisher's exact test - For time-to-event endpoints: Log-rank test with
+Kaplan-Meier estimation - For continuous endpoints: t-test or
+Mann-Whitney U test
+
+\textbf{Sample Size Justification:}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Sample Size Calculation Parameters}\tabularnewline
+\toprule\noalign{}
+Parameter & Value \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Parameter & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Type I Error (α) & 0.05 (two-sided) \\
+Power (1-β) & 80\% \\
+Effect Size & 15\% improvement \\
+Control Response Rate & 30\% \\
+Treatment Response Rate & 45\% \\
+Total Sample Size & 246 \\
+Per Arm Sample Size & 123 \\
+\end{longtable}
+
+\subsection{Secondary Analyses}\label{secondary-analyses}
+
+\subsubsection{Survival Analysis}\label{survival-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  Kaplan-Meier estimation for time-to-event endpoints
+\item
+  Cox proportional hazards regression for adjusted analyses
+\item
+  Competing risk analysis where appropriate
+\end{itemize}
+
+\subsubsection{Subgroup Analyses}\label{subgroup-analyses}
+
+Pre-specified subgroup analyses by: - Age groups (\textless65 vs.~≥65
+years) - Disease stage - Biomarker status - Geographic region
+
+\subsection{Interim Analysis Plan}\label{interim-analysis-plan}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Timing:} After 50\% of events for primary endpoint
+\item
+  \textbf{Purpose:} Futility and efficacy assessment
+\item
+  \textbf{Alpha Spending:} O'Brien-Fleming boundaries
+\item
+  \textbf{IDMC Review:} Independent review with recommendation authority
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{IDMC}\label{idmc}
+
+\subsection{Independent Data Monitoring
+Committee}\label{independent-data-monitoring-committee}
+
+\subsubsection{Committee Composition}\label{committee-composition}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Chair:} Independent statistician with oncology expertise
+\item
+  \textbf{Clinical Expert:} Oncologist/hematologist (disease area
+  expert)
+\item
+  \textbf{Biostatistician:} Independent statistical expert
+\item
+  \textbf{Pharmacovigilance Expert:} Safety monitoring specialist
+\end{itemize}
+
+\subsubsection{Responsibilities}\label{responsibilities}
+
+\paragraph{Safety Monitoring}\label{safety-monitoring}
+
+\begin{itemize}
+\tightlist
+\item
+  Continuous review of safety data
+\item
+  Assessment of benefit-risk balance
+\item
+  Recommendation for study modification/termination if warranted
+\end{itemize}
+
+\paragraph{Efficacy Monitoring}\label{efficacy-monitoring}
+
+\begin{itemize}
+\tightlist
+\item
+  Review of interim efficacy analyses
+\item
+  Assessment of futility or overwhelming efficacy
+\item
+  Guidance on sample size re-estimation
+\end{itemize}
+
+\subsubsection{IDMC Charter}\label{idmc-charter}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Meeting Frequency:} Quarterly or as needed
+\item
+  \textbf{Data Cut-off:} 30 days prior to each meeting
+\item
+  \textbf{Reporting:} Written recommendations to Sponsor
+\item
+  \textbf{Independence:} No financial interest in study outcome
+\end{itemize}
+
+\subsection{IDMC Meeting Schedule}\label{idmc-meeting-schedule}
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{IDMC Meeting Schedule}\tabularnewline
+\toprule\noalign{}
+Meeting & Timing & Focus \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Meeting & Timing & Focus \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Kick-off & Prior to FPFV & Charter Review \\
+Safety Review 1 & Month 6 & Safety Assessment \\
+Interim Analysis & 50\% Events & Efficacy/Futility \\
+Safety Review 2 & Month 18 & Ongoing Safety \\
+Final Analysis & Study Completion & Final Recommendation \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Interim Analysis}\label{interim-analysis}
+
+\subsection{Interim Analysis Strategy}\label{interim-analysis-strategy}
+
+\subsubsection{Objectives}\label{objectives}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Primary:} Assess futility and overwhelming efficacy
+\item
+  \textbf{Secondary:} Safety signal detection and characterization
+\item
+  \textbf{Exploratory:} Biomarker-treatment interaction assessment
+\end{itemize}
+
+\subsubsection{Analysis Timing}\label{analysis-timing}
+
+\textbf{Planned Interim Analysis:} After approximately 50\% of required
+events for primary endpoint analysis
+
+\subsubsection{Statistical
+Considerations}\label{statistical-considerations}
+
+\paragraph{Group Sequential Design}\label{group-sequential-design}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{Group Sequential Boundaries (O'Brien-Fleming)}\tabularnewline
+\toprule\noalign{}
+Analysis & Information\_Fraction & Efficacy\_Boundary &
+Futility\_Boundary \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Analysis & Information\_Fraction & Efficacy\_Boundary &
+Futility\_Boundary \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Interim & 0.5 & 2.963 & 0.500 \\
+Final & 1.0 & 1.969 & 1.969 \\
+\end{longtable}
+
+\subsubsection{Decision Criteria}\label{decision-criteria}
+
+\paragraph{Efficacy Stopping}\label{efficacy-stopping}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Criterion:} Cross efficacy boundary (Z-score \textgreater{}
+  threshold)
+\item
+  \textbf{Action:} Consider early study termination for efficacy
+\item
+  \textbf{Communication:} Expedited communication to regulatory
+  authorities
+\end{itemize}
+
+\paragraph{Futility Stopping}\label{futility-stopping}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Criterion:} Cross futility boundary or conditional power
+  \textless{} 20\%
+\item
+  \textbf{Action:} Consider study termination for futility
+\item
+  \textbf{Analysis:} Additional sensitivity analyses
+\end{itemize}
+
+\subsubsection{Adaptive Features}\label{adaptive-features}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sample Size Re-estimation:} Blinded assessment of event rates
+\item
+  \textbf{Population Enrichment:} Potential enrichment based on
+  biomarker findings
+\item
+  \textbf{Dose Modification:} Safety-driven dose adjustments
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Data Analysis}\label{data-analysis}
+
+\subsection{Analysis Methodology}\label{analysis-methodology}
+
+\subsubsection{Statistical Software}\label{statistical-software}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Primary Analysis:} SAS version 9.4 or later
+\item
+  \textbf{Secondary Analysis:} R version 4.0+ for specialized procedures
+\item
+  \textbf{Graphics:} R/ggplot2 for publication-quality figures
+\item
+  \textbf{Validation:} Independent programming validation
+\end{itemize}
+
+\subsubsection{Analysis Workflow}\label{analysis-workflow}
+
+\begin{center}\includegraphics{Quick_report_files/figure-latex/analysis-workflow-1} \end{center}
+
+\subsubsection{Primary Endpoint
+Analysis}\label{primary-endpoint-analysis-1}
+
+\paragraph{Statistical Model}\label{statistical-model}
+
+For binary primary endpoint (e.g., Overall Response Rate):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Method:} Logistic regression model
+\item
+  \textbf{Factors:} Treatment, stratification factors
+\item
+  \textbf{Estimand:} Treatment difference with 95\% CI
+\item
+  \textbf{Missing Data:} Multiple imputation if \textgreater5\% missing
+\end{itemize}
+
+\paragraph{Analysis Code Structure}\label{analysis-code-structure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example primary analysis code structure}
+\NormalTok{primary\_analysis }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(data) \{}
+  \CommentTok{\# Logistic regression for binary endpoint}
+\NormalTok{  model }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(response }\SpecialCharTok{\textasciitilde{}}\NormalTok{ treatment }\SpecialCharTok{+}\NormalTok{ stratum1 }\SpecialCharTok{+}\NormalTok{ stratum2, }
+               \AttributeTok{data =}\NormalTok{ data, }\AttributeTok{family =}\NormalTok{ binomial)}
+  
+  \CommentTok{\# Extract results}
+\NormalTok{  results }\OtherTok{\textless{}{-}} \FunctionTok{summary}\NormalTok{(model)}
+\NormalTok{  odds\_ratio }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(}\FunctionTok{coef}\NormalTok{(model)[}\StringTok{"treatment"}\NormalTok{])}
+\NormalTok{  ci\_lower }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(}\FunctionTok{confint}\NormalTok{(model)[}\StringTok{"treatment"}\NormalTok{, }\DecValTok{1}\NormalTok{])}
+\NormalTok{  ci\_upper }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(}\FunctionTok{confint}\NormalTok{(model)[}\StringTok{"treatment"}\NormalTok{, }\DecValTok{2}\NormalTok{])}
+\NormalTok{  p\_value }\OtherTok{\textless{}{-}}\NormalTok{ results}\SpecialCharTok{$}\NormalTok{coefficients[}\StringTok{"treatment"}\NormalTok{, }\StringTok{"Pr(\textgreater{}|z|)"}\NormalTok{]}
+  
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{OR =}\NormalTok{ odds\_ratio, }\AttributeTok{CI =} \FunctionTok{c}\NormalTok{(ci\_lower, ci\_upper), }
+              \AttributeTok{p\_value =}\NormalTok{ p\_value))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Secondary Endpoint
+Analyses}\label{secondary-endpoint-analyses}
+
+\paragraph{Survival Analysis}\label{survival-analysis-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Kaplan{-}Meier and Cox regression example}
+\FunctionTok{library}\NormalTok{(survival)}
+\FunctionTok{library}\NormalTok{(survminer)}
+
+\CommentTok{\# Kaplan{-}Meier curves}
+\NormalTok{km\_fit }\OtherTok{\textless{}{-}} \FunctionTok{survfit}\NormalTok{(}\FunctionTok{Surv}\NormalTok{(time, event) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ treatment, }\AttributeTok{data =}\NormalTok{ survival\_data)}
+
+\CommentTok{\# Log{-}rank test}
+\NormalTok{logrank\_test }\OtherTok{\textless{}{-}} \FunctionTok{survdiff}\NormalTok{(}\FunctionTok{Surv}\NormalTok{(time, event) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ treatment, }\AttributeTok{data =}\NormalTok{ survival\_data)}
+
+\CommentTok{\# Cox proportional hazards model}
+\NormalTok{cox\_model }\OtherTok{\textless{}{-}} \FunctionTok{coxph}\NormalTok{(}\FunctionTok{Surv}\NormalTok{(time, event) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ treatment }\SpecialCharTok{+}\NormalTok{ age }\SpecialCharTok{+}\NormalTok{ stage, }
+                   \AttributeTok{data =}\NormalTok{ survival\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Safety Analysis}\label{safety-analysis}
+
+\paragraph{Adverse Event Summary}\label{adverse-event-summary}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Incidence tables} by system organ class and preferred term
+\item
+  \textbf{Severity grading} according to CTCAE criteria
+\item
+  \textbf{Relationship assessment} to study treatment
+\item
+  \textbf{Time-to-onset analysis} for key safety signals
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Regulatory}\label{regulatory}
+
+\subsection{Regulatory Strategy}\label{regulatory-strategy}
+
+\subsubsection{Regulatory Framework}\label{regulatory-framework}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Primary Jurisdiction:} FDA (United States)
+\item
+  \textbf{Secondary Jurisdictions:} EMA (Europe), Health Canada, PMDA
+  (Japan)
+\item
+  \textbf{Guidance Documents:} ICH E6(R2), ICH E9, FDA Adaptive Design
+  Guidance
+\end{itemize}
+
+\subsubsection{Regulatory Interactions}\label{regulatory-interactions}
+
+\paragraph{Pre-Study Interactions}\label{pre-study-interactions}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{IND/CTA Filing:} Completed {[}DATE{]}
+\item
+  \textbf{SPA Agreement:} Special Protocol Assessment with FDA (if
+  applicable)
+\item
+  \textbf{Scientific Advice:} EMA Scientific Advice procedure (if
+  applicable)
+\end{itemize}
+
+\paragraph{During Study Interactions}\label{during-study-interactions}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Safety Updates:} Annual safety reports and expedited safety
+  reports
+\item
+  \textbf{Protocol Amendments:} Regulatory notification and approval
+  processes
+\item
+  \textbf{Interim Communications:} IDMC recommendations communication
+\end{itemize}
+
+\subsubsection{Regulatory Submissions
+Timeline}\label{regulatory-submissions-timeline}
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Regulatory Milestones Timeline}\tabularnewline
+\toprule\noalign{}
+Milestone & Timeline & Status \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Milestone & Timeline & Status \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+IND/CTA Submission & Month -6 & Completed \\
+Study Initiation & Month 0 & Completed \\
+First Patient Enrolled & Month 2 & Completed \\
+Interim Analysis & Month 15 & Planned \\
+Last Patient Last Visit & Month 30 & Planned \\
+Database Lock & Month 32 & Planned \\
+CSR Completion & Month 35 & Planned \\
+Regulatory Submission & Month 36 & Planned \\
+\end{longtable}
+
+\subsection{Compliance and Quality}\label{compliance-and-quality}
+
+\subsubsection{Good Clinical Practice
+(GCP)}\label{good-clinical-practice-gcp}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{ICH E6(R2) Compliance:} Full adherence to GCP guidelines
+\item
+  \textbf{Training Requirements:} All study personnel GCP-certified
+\item
+  \textbf{Monitoring Strategy:} Risk-based monitoring approach
+\end{itemize}
+
+\subsubsection{Data Integrity}\label{data-integrity}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{ALCOA+ Principles:} Attributable, Legible, Contemporaneous,
+  Original, Accurate, Complete, Consistent, Enduring, Available
+\item
+  \textbf{Electronic Records:} 21 CFR Part 11 compliance for electronic
+  systems
+\item
+  \textbf{Audit Trail:} Comprehensive audit trail for all data
+  modifications
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Real-World Evidence}\label{real-world-evidence}
+
+\subsection{Real-World Evidence
+Strategy}\label{real-world-evidence-strategy}
+
+\subsubsection{Objectives}\label{objectives-1}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Validation:} Confirm clinical trial findings in real-world
+  settings
+\item
+  \textbf{Effectiveness:} Assess treatment effectiveness in broader
+  patient populations
+\item
+  \textbf{Safety:} Long-term safety monitoring in clinical practice
+\item
+  \textbf{Health Economics:} Real-world health economic outcomes
+\end{itemize}
+
+\subsubsection{Data Sources}\label{data-sources}
+
+\paragraph{Electronic Health Records
+(EHR)}\label{electronic-health-records-ehr}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Coverage:} Large healthcare networks and academic medical
+  centers
+\item
+  \textbf{Patient Population:} Broader than clinical trial eligible
+  patients
+\item
+  \textbf{Follow-up:} Long-term outcomes assessment (5+ years)
+\end{itemize}
+
+\paragraph{Claims Databases}\label{claims-databases}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Administrative Claims:} Medicare, Medicaid, commercial payers
+\item
+  \textbf{Prescription Data:} Pharmacy dispensing records
+\item
+  \textbf{Healthcare Utilization:} Hospital admissions, procedures,
+  costs
+\end{itemize}
+
+\paragraph{Patient Registries}\label{patient-registries}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Disease Registries:} Disease-specific patient registries
+\item
+  \textbf{Treatment Registries:} Treatment outcome registries
+\item
+  \textbf{Biomarker Registries:} Genetic and biomarker databases
+\end{itemize}
+
+\subsubsection{RWE Study Design}\label{rwe-study-design}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1571}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8429}}@{}}
+\caption{Real-World Evidence Study Components}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Study Type & Retrospective cohort study \\
+Population & All patients treated with study drug in real-world
+setting \\
+Exposure & Study drug vs.~standard of care comparators \\
+Outcomes & Effectiveness, safety, healthcare resource utilization \\
+Follow-up & Minimum 2 years from treatment initiation \\
+Analysis & Propensity score matching, inverse probability weighting \\
+\end{longtable}
+
+\subsubsection{Analytics and Methods}\label{analytics-and-methods}
+
+\paragraph{Comparative Effectiveness
+Research}\label{comparative-effectiveness-research}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Propensity Score Methods:} Matching and stratification
+\item
+  \textbf{Inverse Probability Weighting:} Treatment selection bias
+  adjustment
+\item
+  \textbf{Instrumental Variables:} Natural experiments and policy
+  changes
+\item
+  \textbf{Machine Learning:} Advanced analytics for pattern recognition
+\end{itemize}
+
+\paragraph{Health Economics Analysis}\label{health-economics-analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Cost-Effectiveness Analysis:} Incremental cost per
+  quality-adjusted life year (QALY)
+\item
+  \textbf{Budget Impact Modeling:} Healthcare system financial impact
+\item
+  \textbf{Resource Utilization:} Healthcare service consumption patterns
+\end{itemize}
+
+\subsubsection{Regulatory
+Considerations}\label{regulatory-considerations}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{FDA Guidance:} Real-World Evidence Program guidance compliance
+\item
+  \textbf{EMA Guidelines:} Post-authorization safety studies (PASS)
+  requirements
+\item
+  \textbf{Data Privacy:} GDPR, HIPAA, and local privacy law compliance
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Conclusion}\label{conclusion}
+
+This quick report provides a comprehensive framework for clinical study
+execution, from initial conceptual design through real-world evidence
+generation. The integrated approach ensures:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Scientific Rigor:} Robust statistical design with appropriate
+  power
+\item
+  \textbf{Regulatory Compliance:} Adherence to global regulatory
+  standards
+\item
+  \textbf{Data Quality:} Comprehensive data management and quality
+  assurance
+\item
+  \textbf{Patient Safety:} Independent monitoring and adaptive study
+  features
+\item
+  \textbf{Real-World Relevance:} Translation to clinical practice
+  through RWE
+\end{itemize}
+
+\subsection{Next Steps}\label{next-steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Protocol Finalization:} Incorporate stakeholder feedback
+\item
+  \textbf{Regulatory Submission:} Complete IND/CTA submissions
+\item
+  \textbf{Site Activation:} Initiate study sites and enrollment
+\item
+  \textbf{Data Collection:} Begin systematic data capture and monitoring
+\item
+  \textbf{Analysis Execution:} Implement statistical analysis plan
+\item
+  \textbf{Regulatory Filing:} Prepare submission dossier
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Document Control:} - \textbf{Version:} 1.0 - \textbf{Date:}
+2025-12-01 - \textbf{Author:} Clinical Research Team - \textbf{Review:}
+{[}To be completed{]} - \textbf{Approval:} {[}To be completed{]}
+
+\end{document}
