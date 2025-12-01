@@ -14,3 +14,4 @@ lines(density(y), col = "red", lwd = 2)
 legend("topright", legend = c("Histogram", "Density"), 
        fill = c("lightblue", NA), border = c("white", NA),
        lty = c(NA, 1), col = c(NA, "red"), lwd = c(NA, 2))
+
